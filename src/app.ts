@@ -1,11 +1,11 @@
-import { CanvasManager, Dimension } from "./lib/CanvasManager";
+import { CanvasManager, Dimension } from './lib/CanvasManager';
 window.onload = () => {
   const canvas = document.getElementById(
-    "canvas-playground"
+    'canvas-playground'
   ) as HTMLCanvasElement;
 
   if (!canvas) {
-    alert("Canvas Element not found");
+    alert('Canvas Element not found');
   }
 
   const windowWidth = window.innerWidth;
@@ -19,8 +19,13 @@ window.onload = () => {
   canvasManager.setDimension(canvasDimension);
 
   // resize canvas
-
   window.onresize = () => {
     canvasManager.setDimension(canvasDimension);
   };
+
+  canvasManager.randomSpawnCircle();
+  canvasManager.randomSpawnCircle();
+  canvasManager.randomSpawnCircle();
+  canvasManager.randomSpawnCircle();
+  canvasManager.randomSpawnCircle();
 };

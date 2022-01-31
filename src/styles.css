@@ -2,3 +2,7 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.canvas-border {
+  border: #333 10px solid;
+}
