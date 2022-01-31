@@ -5,7 +5,22 @@
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "format": "prettier --write .",
+    "test": "jest"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint"
+    ]
+  },
+  "lint-prepush": {
+    "base": "develop",
+    "tasks": {
+      "*.{js,jsx,ts,tsx}": [
+        "eslint"
+      ]
+    }
   },
   "dependencies": {
     "@commitlint/cli": "^16.1.0",
