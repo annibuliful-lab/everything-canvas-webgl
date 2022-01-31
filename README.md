@@ -10,7 +10,6 @@ Books in my hand
 - [HTML5 Canvas: Native Interactivity and Animation for the Web](https://www.amazon.com/HTML5-Canvas-Native-Interactivity-Animation/dp/1449334989)
 - [SVG Essential](https://www.amazon.com/SVG-Essentials-Producing-Scalable-Graphics/dp/1449374352)
 
-
   ...Some free e-books and learning stuff on internet world
 
 ## Contributors
