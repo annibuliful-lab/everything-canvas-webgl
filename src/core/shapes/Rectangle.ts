@@ -21,6 +21,50 @@ export class Rectangle implements I2dObject {
     this.height = height;
   }
 
+  get left() {
+    return this.x;
+  }
+
+  get right() {
+    return this.x + this.width;
+  }
+
+  get top() {
+    return this.y;
+  }
+
+  get bottom() {
+    return this.y + this.height;
+  }
+
+  get topLeft() {
+    return {
+      x: this.x,
+      y: this.y,
+    };
+  }
+
+  get topRight() {
+    return {
+      x: this.right,
+      y: this.y,
+    };
+  }
+
+  get bottomLeft() {
+    return {
+      x: this.x,
+      y: this.bottom,
+    };
+  }
+
+  get bottomRight() {
+    return {
+      x: this.right,
+      y: this.bottom,
+    };
+  }
+
   toObject() {
     return {
       x: this.x,
@@ -28,6 +72,14 @@ export class Rectangle implements I2dObject {
       scaleX: this.scaleX,
       scaleY: this.scaleY,
       fill: this.fill,
+      widht: this.width,
+      height: this.height,
+      boundingBox: {
+        topLeft: this.topLeft,
+        topRight: this.topRight,
+        bottomLeft: this.bottomLeft,
+        bottomRight: this.bottomRight,
+      },
     };
   }
 
@@ -39,10 +91,24 @@ export class Rectangle implements I2dObject {
     ctx.stroke();
   }
 
-  //TODO: add contains functionality and test
   contains(position: I2dPosition) {
     if (this.width === 0 || this.height === 0) {
       return false;
+    }
+    const { x, y } = position;
+
+    const isInsideLeftEdge = x >= this.left;
+    const isInsideRightEdge = x <= this.right;
+    const isInsideBelowAndTopEdge = y >= this.top;
+    const isInsideAboveAndBottomEdge = y <= this.bottom;
+
+    if (
+      isInsideLeftEdge &&
+      isInsideRightEdge &&
+      isInsideBelowAndTopEdge &&
+      isInsideAboveAndBottomEdge
+    ) {
+      return true;
     }
 
     return false;
