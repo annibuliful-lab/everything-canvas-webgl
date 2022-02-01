@@ -4,19 +4,14 @@ export type Dimension = {
 };
 
 export class CanvasManager {
-  private element: HTMLCanvasElement;
-  private context2d: CanvasRenderingContext2D;
-  private webglContext: WebGLRenderingContext;
-  private width: number;
-  private height: number;
+  element: HTMLCanvasElement;
+  context: CanvasRenderingContext2D;
+  width: number = 0;
+  height: number = 0;
 
   constructor(canvas: HTMLCanvasElement) {
     this.element = canvas;
-    this.context2d = canvas.getContext("2d");
-    const webgl = canvas.getContext("webgl");
-    if (webgl) {
-      this.webglContext = webgl;
-    }
+    this.context = canvas.getContext("2d") as CanvasRenderingContext2D;
   }
 
   setDimension(dimension: Dimension) {
