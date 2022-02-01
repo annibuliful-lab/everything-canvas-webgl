@@ -6,12 +6,12 @@ export type Dimension = {
 export class CanvasManager {
   element: HTMLCanvasElement;
   context: CanvasRenderingContext2D;
-  width: number;
-  height: number;
+  width: number = 0;
+  height: number = 0;
 
   constructor(canvas: HTMLCanvasElement) {
     this.element = canvas;
-    this.context = canvas.getContext("2d");
+    this.context = canvas.getContext("2d") as CanvasRenderingContext2D;
   }
 
   setDimension(dimension: Dimension) {

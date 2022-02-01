@@ -24,6 +24,15 @@ export interface I2dObject {
   y: number;
   width: number;
   height: number;
+  get left(): number;
+  get right(): number;
+  get top(): number;
+
+  get bottom(): number;
+  get topLeft(): I2dPosition;
+  get topRight(): I2dPosition;
+  get bottomLeft(): I2dPosition;
+  get bottomRight(): I2dPosition;
   draw(ctx: CanvasRenderingContext2D): void;
   contains(position: I2dPosition): boolean;
   toObject(): Object;
