@@ -19,7 +19,16 @@ export interface I3dDimension extends I2dDimension {
 
 export type ObjectPositioDimension = I2dPosition & I2dDimension;
 
+export interface I2dDraw {
+  draw(ctx: CanvasRenderingContext2D): void;
+}
+
+export interface I2dIntersection {
+  contains(position: I2dPosition): boolean;
+}
+
 export interface I2dObject<T> {
+  id: string;
   x: number;
   y: number;
   width: number;
@@ -57,7 +66,5 @@ export interface I2dObject<T> {
       >
     >
   ): void;
-  draw(ctx: CanvasRenderingContext2D): void;
-  contains(position: I2dPosition): boolean;
   toObject(): Object;
 }

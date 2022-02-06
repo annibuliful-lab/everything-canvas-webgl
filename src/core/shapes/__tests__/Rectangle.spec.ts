@@ -6,6 +6,7 @@ const BASE_PARAM = {
   y: 12,
   width: 120,
   height: 311,
+  id: "BASE_PARAM",
 };
 
 const EXPECT_BOUNDING_BOX = {
@@ -15,7 +16,7 @@ const EXPECT_BOUNDING_BOX = {
   bottomRight: { x: 130, y: 323 },
 };
 
-function createRect(data?: ObjectPositioDimension) {
+function createRect(data?: ObjectPositioDimension & { id: string }) {
   return new Rectangle(data ?? BASE_PARAM);
 }
 
