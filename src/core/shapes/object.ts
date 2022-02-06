@@ -1,5 +1,6 @@
 import { I2dDraw, I2dObject, ObjectPositioDimension } from "../@types/Object";
 import { IDENTITY_METRIX } from "../math/constants";
+import { angleToRadian } from "../math/trigometry";
 
 export class ShapeBaseObject implements I2dObject<ShapeBaseObject>, I2dDraw {
   id: string;
@@ -26,10 +27,6 @@ export class ShapeBaseObject implements I2dObject<ShapeBaseObject>, I2dDraw {
     this.width = width;
     this.height = height;
     this.id = id;
-  }
-
-  draw(ctx: CanvasRenderingContext2D): void {
-    throw new Error("Method not implemented.");
   }
 
   get left() {
@@ -143,8 +140,24 @@ export class ShapeBaseObject implements I2dObject<ShapeBaseObject>, I2dDraw {
     ctx.scale(this.scaleX, this.scaleY);
   }
 
+  transformAngle(ctx: CanvasRenderingContext2D) {
+    ctx.rotate(angleToRadian(this.angle));
+  }
+
   drawStroke(ctx: CanvasRenderingContext2D) {
     ctx.strokeStyle = this.borderColor;
     ctx.lineWidth = this.borderWidth;
+  }
+
+  draw(ctx: CanvasRenderingContext2D) {
+    ctx.beginPath();
+    this.transformScale(ctx);
+    this.transformAngle(ctx);
+    ctx.rect(this.x, this.y, this.width, this.height);
+    ctx.fillStyle = this.fill;
+    this.drawStroke(ctx);
+    ctx.fill();
+    ctx.stroke();
+    ctx.setTransform(IDENTITY_METRIX);
   }
 }

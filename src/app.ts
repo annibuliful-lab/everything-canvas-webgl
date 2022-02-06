@@ -49,6 +49,16 @@ window.onload = () => {
       canvasManager.remove(rect1.id);
       canvasManager.render();
     }, 3000);
+
+    setTimeout(() => {
+      rect2.set({ x: 150, y: 0 });
+      canvasManager.render();
+    }, 5000);
+
+    setTimeout(() => {
+      rect2.set({ angle: 40 });
+      canvasManager.render();
+    }, 6000);
   }
 
   draw();

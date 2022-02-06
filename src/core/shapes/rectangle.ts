@@ -39,16 +39,6 @@ export class Rectangle
     }
   }
 
-  draw(ctx: CanvasRenderingContext2D) {
-    ctx.beginPath();
-    this.transformScale(ctx);
-    ctx.rect(this.x, this.y, this.width, this.height);
-    ctx.fillStyle = this.fill;
-    this.drawStroke(ctx);
-    ctx.fill();
-    ctx.stroke();
-  }
-
   contains(position: I2dPosition) {
     if (this.width === 0 || this.height === 0) {
       return false;
