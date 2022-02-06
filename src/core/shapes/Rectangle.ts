@@ -65,6 +65,15 @@ export class Rectangle implements I2dObject {
     };
   }
 
+  get boundingBox() {
+    return {
+      topLeft: this.topLeft,
+      topRight: this.topRight,
+      bottomLeft: this.bottomLeft,
+      bottomRight: this.bottomRight,
+    };
+  }
+
   toObject() {
     return {
       x: this.x,
@@ -74,12 +83,7 @@ export class Rectangle implements I2dObject {
       fill: this.fill,
       widht: this.width,
       height: this.height,
-      boundingBox: {
-        topLeft: this.topLeft,
-        topRight: this.topRight,
-        bottomLeft: this.bottomLeft,
-        bottomRight: this.bottomRight,
-      },
+      boundingBox: this.boundingBox,
     };
   }
 
