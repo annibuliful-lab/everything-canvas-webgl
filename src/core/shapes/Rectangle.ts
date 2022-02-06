@@ -117,6 +117,7 @@ export class Rectangle implements I2dObject<Rectangle> {
       widht: this.width,
       height: this.height,
       boundingBox: this.boundingBox,
+      border: this.border,
     };
   }
 
