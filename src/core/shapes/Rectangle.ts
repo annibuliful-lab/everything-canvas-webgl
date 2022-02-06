@@ -103,11 +103,7 @@ export class Rectangle implements I2dObject<Rectangle> {
     ctx.beginPath();
     ctx.rect(this.x, this.y, this.width, this.height);
     ctx.fillStyle = this.fill;
-
-    if (this.borderColor) {
-      ctx.strokeStyle = this.borderColor;
-    }
-
+    ctx.strokeStyle = this.borderColor;
     ctx.fill();
     ctx.stroke();
   }
