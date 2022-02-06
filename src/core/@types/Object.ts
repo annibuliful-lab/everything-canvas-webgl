@@ -26,6 +26,7 @@ export interface I2dObject<T> {
   height: number;
   fill: string;
   borderColor: string;
+  borderWidth: number;
   angle: number;
   scaleX: number;
   scaleY: number;
@@ -37,7 +38,25 @@ export interface I2dObject<T> {
   get topRight(): I2dPosition;
   get bottomLeft(): I2dPosition;
   get bottomRight(): I2dPosition;
-
+  set(
+    option: Partial<
+      Omit<
+        T,
+        | "draw"
+        | "contains"
+        | "toObjects"
+        | "left"
+        | "right"
+        | "top"
+        | "bottom"
+        | "topLeft"
+        | "topRight"
+        | "bottomLeft"
+        | "bottomRight"
+        | "setFill"
+      >
+    >
+  ): void;
   draw(ctx: CanvasRenderingContext2D): void;
   contains(position: I2dPosition): boolean;
   toObject(): Object;
