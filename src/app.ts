@@ -1,5 +1,5 @@
-import { Rectangle } from "./core/shapes/Rectangle";
-import { CanvasManager, Dimension } from "./core/CanvasManager";
+import { Rectangle } from "./core/shapes/rectangle";
+import { CanvasManager, Dimension } from "./core/canvasManager";
 window.onload = () => {
   const canvas = document.getElementById(
     "canvas-playground"

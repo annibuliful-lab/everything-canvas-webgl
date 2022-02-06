@@ -1,5 +1,5 @@
 import { ObjectPositioDimension } from "../../@types/Object";
-import { Rectangle } from "../Rectangle";
+import { Rectangle } from "../rectangle";
 
 const BASE_PARAM = {
   x: 10,
