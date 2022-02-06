@@ -3,6 +3,7 @@ import {
   I2dPosition,
   ObjectPositioDimension,
 } from "../@types/Object";
+import { IDENTITY_METRIX } from "../math/constants";
 
 type SetOptionParam = Partial<
   Omit<
@@ -125,12 +126,21 @@ export class Rectangle implements I2dObject<Rectangle> {
     this.fill = fill;
   }
 
-  draw(ctx: CanvasRenderingContext2D) {
-    ctx.beginPath();
-    ctx.rect(this.x, this.y, this.width, this.height);
-    ctx.fillStyle = this.fill;
+  scale(ctx: CanvasRenderingContext2D) {
+    ctx.setTransform(IDENTITY_METRIX);
+    ctx.scale(this.scaleX, this.scaleY);
+  }
+  drawStroke(ctx: CanvasRenderingContext2D) {
     ctx.strokeStyle = this.borderColor;
     ctx.lineWidth = this.borderWidth;
+  }
+
+  draw(ctx: CanvasRenderingContext2D) {
+    ctx.beginPath();
+    this.scale(ctx);
+    ctx.rect(this.x, this.y, this.width, this.height);
+    ctx.fillStyle = this.fill;
+    this.drawStroke(ctx);
     ctx.fill();
     ctx.stroke();
   }
