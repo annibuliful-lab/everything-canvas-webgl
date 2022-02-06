@@ -44,6 +44,24 @@ describe("Rectangle", () => {
     });
   });
 
+  describe("setFill", () => {
+    it("it should set new fill value", () => {
+      const rect = createRect();
+      const newFill = "#0a4872";
+      rect.setFill(newFill);
+      expect(rect.toObject().fill).toEqual(newFill);
+    });
+  });
+
+  describe("set", () => {
+    it("it should set new fill value", () => {
+      const rect = createRect();
+      const newFill = "#0a4872";
+      rect.set({ fill: newFill });
+      expect(rect.toObject().fill).toEqual(newFill);
+    });
+  });
+
   describe("toObject ", () => {
     it("it should contain position object", () => {
       expect(baseRectObject.x).toEqual(BASE_PARAM.x);

@@ -5,14 +5,16 @@ import {
   ObjectPositioDimension,
 } from "../@types/Object";
 
-export class Rectangle implements I2dObject {
+export class Rectangle implements I2dObject<Rectangle> {
   x: number;
   y: number;
   width: number;
   height: number;
   fill = "#000000";
+  borderColor = "rgba(0,0,0,0)";
   scaleX = 1;
   scaleY = 1;
+  angle = 0;
 
   constructor({ x, y, width, height }: ObjectPositioDimension) {
     this.x = x;
@@ -65,6 +67,15 @@ export class Rectangle implements I2dObject {
     };
   }
 
+  get boundingBox() {
+    return {
+      topLeft: this.topLeft,
+      topRight: this.topRight,
+      bottomLeft: this.bottomLeft,
+      bottomRight: this.bottomRight,
+    };
+  }
+
   toObject() {
     return {
       x: this.x,
@@ -74,19 +85,25 @@ export class Rectangle implements I2dObject {
       fill: this.fill,
       widht: this.width,
       height: this.height,
-      boundingBox: {
-        topLeft: this.topLeft,
-        topRight: this.topRight,
-        bottomLeft: this.bottomLeft,
-        bottomRight: this.bottomRight,
-      },
+      boundingBox: this.boundingBox,
     };
+  }
+
+  setFill(fill: string) {
+    this.fill = fill;
+  }
+
+  set<K extends keyof Rectangle, V extends Rectangle[K]>(option: Record<K, V>) {
+    for (const key of Object.keys(option)) {
+      (<any>this)[key] = option[key as K];
+    }
   }
 
   draw(ctx: CanvasRenderingContext2D) {
     ctx.beginPath();
     ctx.rect(this.x, this.y, this.width, this.height);
     ctx.fillStyle = this.fill;
+    ctx.strokeStyle = this.borderColor;
     ctx.fill();
     ctx.stroke();
   }
