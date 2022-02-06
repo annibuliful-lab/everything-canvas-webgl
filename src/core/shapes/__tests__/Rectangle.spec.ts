@@ -44,21 +44,23 @@ describe("Rectangle", () => {
     });
   });
 
-  describe("setFill", () => {
-    it("it should set new fill value", () => {
-      const rect = createRect();
-      const newFill = "#0a4872";
-      rect.setFill(newFill);
-      expect(rect.toObject().fill).toEqual(newFill);
-    });
-  });
-
   describe("set", () => {
     it("it should set new fill value", () => {
       const rect = createRect();
       const newFill = "#0a4872";
       rect.set({ fill: newFill });
       expect(rect.toObject().fill).toEqual(newFill);
+    });
+
+    it("it should set scale attribute", () => {
+      const rect = createRect();
+      const scale = {
+        scaleX: 1,
+        scaleY: 1.5,
+      };
+
+      rect.set(scale);
+      expect(rect.toObject().scale).toEqual(scale);
     });
 
     it("it should set border attribute", () => {
