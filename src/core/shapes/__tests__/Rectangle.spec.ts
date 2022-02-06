@@ -60,9 +60,30 @@ describe("Rectangle", () => {
       rect.set({ fill: newFill });
       expect(rect.toObject().fill).toEqual(newFill);
     });
+
+    it("it should set border attribute", () => {
+      const rect = createRect();
+
+      const option = {
+        borderColor: "red",
+        borderWidth: 3,
+      };
+      rect.set(option);
+
+      expect(rect.border).toEqual(option);
+    });
   });
 
   describe("toObject ", () => {
+    it("it should contain border attribute", () => {
+      const rect = createRect();
+
+      expect(rect.border).toEqual({
+        borderColor: "rgba(0,0,0,0)",
+        borderWidth: 0,
+      });
+    });
+
     it("it should contain position object", () => {
       expect(baseRectObject.x).toEqual(BASE_PARAM.x);
       expect(baseRectObject.y).toEqual(BASE_PARAM.y);

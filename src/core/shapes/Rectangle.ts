@@ -1,9 +1,27 @@
 import {
-  I2dDimension,
   I2dObject,
   I2dPosition,
   ObjectPositioDimension,
 } from "../@types/Object";
+
+type SetOptionParam = Partial<
+  Omit<
+    Rectangle,
+    | "draw"
+    | "contains"
+    | "toObjects"
+    | "left"
+    | "right"
+    | "top"
+    | "bottom"
+    | "topLeft"
+    | "topRight"
+    | "bottomLeft"
+    | "bottomRight"
+    | "setFill"
+    | "border"
+  >
+>;
 
 export class Rectangle implements I2dObject<Rectangle> {
   x: number;
@@ -12,6 +30,7 @@ export class Rectangle implements I2dObject<Rectangle> {
   height: number;
   fill = "#000000";
   borderColor = "rgba(0,0,0,0)";
+  borderWidth = 0;
   scaleX = 1;
   scaleY = 1;
   angle = 0;
@@ -21,6 +40,11 @@ export class Rectangle implements I2dObject<Rectangle> {
     this.y = y;
     this.width = width;
     this.height = height;
+  }
+  set(option: SetOptionParam): void {
+    for (const [key, value] of Object.entries(option)) {
+      (<any>this)[key] = value;
+    }
   }
 
   get left() {
@@ -76,6 +100,13 @@ export class Rectangle implements I2dObject<Rectangle> {
     };
   }
 
+  get border() {
+    return {
+      borderColor: this.borderColor,
+      borderWidth: this.borderWidth,
+    };
+  }
+
   toObject() {
     return {
       x: this.x,
@@ -86,6 +117,7 @@ export class Rectangle implements I2dObject<Rectangle> {
       widht: this.width,
       height: this.height,
       boundingBox: this.boundingBox,
+      border: this.border,
     };
   }
 
@@ -93,17 +125,12 @@ export class Rectangle implements I2dObject<Rectangle> {
     this.fill = fill;
   }
 
-  set<K extends keyof Rectangle, V extends Rectangle[K]>(option: Record<K, V>) {
-    for (const key of Object.keys(option)) {
-      (<any>this)[key] = option[key as K];
-    }
-  }
-
   draw(ctx: CanvasRenderingContext2D) {
     ctx.beginPath();
     ctx.rect(this.x, this.y, this.width, this.height);
     ctx.fillStyle = this.fill;
     ctx.strokeStyle = this.borderColor;
+    ctx.lineWidth = this.borderWidth;
     ctx.fill();
     ctx.stroke();
   }

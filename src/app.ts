@@ -21,7 +21,12 @@ window.onload = () => {
   const rect1 = new Rectangle({ x: 30, y: 30, width: 100, height: 100 });
   rect1.draw(canvasManager.context);
   const rect2 = new Rectangle({ x: 150, y: 30, width: 100, height: 100 });
-  rect2.setFill("yellow");
+
+  rect2.set({
+    fill: "yellow",
+    borderColor: "black",
+    borderWidth: 3,
+  });
   rect2.draw(canvasManager.context);
   // resize canvas
 
