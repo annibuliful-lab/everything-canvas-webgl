@@ -19,20 +19,25 @@ export interface I3dDimension extends I2dDimension {
 
 export type ObjectPositioDimension = I2dPosition & I2dDimension;
 
-export interface I2dObject {
+export interface I2dObject<T> {
   x: number;
   y: number;
   width: number;
   height: number;
+  fill: string;
+  borderColor: string;
+  angle: number;
+  scaleX: number;
+  scaleY: number;
   get left(): number;
   get right(): number;
   get top(): number;
-
   get bottom(): number;
   get topLeft(): I2dPosition;
   get topRight(): I2dPosition;
   get bottomLeft(): I2dPosition;
   get bottomRight(): I2dPosition;
+
   draw(ctx: CanvasRenderingContext2D): void;
   contains(position: I2dPosition): boolean;
   toObject(): Object;
