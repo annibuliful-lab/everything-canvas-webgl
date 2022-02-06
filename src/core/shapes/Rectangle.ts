@@ -134,6 +134,7 @@ export class Rectangle implements I2dObject<Rectangle> {
     ctx.setTransform(IDENTITY_METRIX);
     ctx.scale(this.scaleX, this.scaleY);
   }
+
   drawStroke(ctx: CanvasRenderingContext2D) {
     ctx.strokeStyle = this.borderColor;
     ctx.lineWidth = this.borderWidth;
