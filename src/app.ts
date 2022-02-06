@@ -51,7 +51,7 @@ window.onload = () => {
     }, 3000);
 
     setTimeout(() => {
-      rect2.set({ x: 10, y: 10 });
+      rect2.set({ x: 150, y: 0 });
       canvasManager.render();
     }, 5000);
 
