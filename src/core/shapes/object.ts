@@ -142,7 +142,6 @@ export class ShapeBaseObject implements I2dObject<ShapeBaseObject>, I2dDraw {
 
   transformAngle(ctx: CanvasRenderingContext2D) {
     ctx.rotate(angleToRadian(this.angle));
-    ctx.setTransform(IDENTITY_METRIX);
   }
 
   drawStroke(ctx: CanvasRenderingContext2D) {
@@ -152,12 +151,13 @@ export class ShapeBaseObject implements I2dObject<ShapeBaseObject>, I2dDraw {
 
   draw(ctx: CanvasRenderingContext2D) {
     ctx.beginPath();
-    this.transformAngle(ctx);
     this.transformScale(ctx);
+    this.transformAngle(ctx);
     ctx.rect(this.x, this.y, this.width, this.height);
     ctx.fillStyle = this.fill;
     this.drawStroke(ctx);
     ctx.fill();
     ctx.stroke();
+    ctx.setTransform(IDENTITY_METRIX);
   }
 }
