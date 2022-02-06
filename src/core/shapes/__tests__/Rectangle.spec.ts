@@ -57,7 +57,7 @@ describe("Rectangle", () => {
     it("it should set new fill value", () => {
       const rect = createRect();
       const newFill = "#0a4872";
-      rect.set({ fill: "asdasd" });
+      rect.set({ fill: newFill });
       expect(rect.toObject().fill).toEqual(newFill);
     });
   });
