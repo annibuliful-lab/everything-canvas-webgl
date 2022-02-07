@@ -5,19 +5,27 @@ export type Dimension = {
   height: number;
 };
 
+export interface ICanvasObject extends ShapeBaseObject {
+  draw(ctx: CanvasRenderingContext2D): void;
+  centerPoint: {
+    top: number;
+    left: number;
+  };
+}
+
 export class CanvasManager {
   element: HTMLCanvasElement;
   context: CanvasRenderingContext2D;
   width: number = 0;
   height: number = 0;
-  private _objects: ShapeBaseObject[] = [];
+  private _objects: ICanvasObject[] = [];
 
   constructor(canvas: HTMLCanvasElement) {
     this.element = canvas;
     this.context = canvas.getContext("2d") as CanvasRenderingContext2D;
   }
 
-  add<T extends ShapeBaseObject>(object: T) {
+  add<T extends ICanvasObject>(object: T) {
     this._objects.push(object);
   }
 

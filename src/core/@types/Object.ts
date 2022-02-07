@@ -47,6 +47,8 @@ export interface I2dObject<T> {
   get topRight(): I2dPosition;
   get bottomLeft(): I2dPosition;
   get bottomRight(): I2dPosition;
+  draw(ctx: CanvasRenderingContext2D): void;
+
   set(
     option: Partial<
       Omit<

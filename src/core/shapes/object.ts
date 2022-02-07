@@ -1,8 +1,8 @@
-import { I2dDraw, I2dObject, ObjectPositioDimension } from "../@types/Object";
+import { ObjectPositioDimension } from "../@types/Object";
 import { IDENTITY_METRIX } from "../math/constants";
 import { angleToRadian } from "../math/trigometry";
 
-export class ShapeBaseObject implements I2dObject<ShapeBaseObject>, I2dDraw {
+export class ShapeBaseObject {
   id: string;
   x: number;
   y: number;
@@ -134,30 +134,24 @@ export class ShapeBaseObject implements I2dObject<ShapeBaseObject>, I2dDraw {
       (<any>this)[key] = value;
     }
   }
+  resetTransform(ctx: CanvasRenderingContext2D) {
+    ctx.setTransform(IDENTITY_METRIX);
+  }
 
   transformScale(ctx: CanvasRenderingContext2D) {
-    ctx.setTransform(IDENTITY_METRIX);
     ctx.scale(this.scaleX, this.scaleY);
   }
 
   transformAngle(ctx: CanvasRenderingContext2D) {
+    // move canvas to shape center point
+    ctx.translate(this.x + this.width / 2, this.y + this.height / 2);
     ctx.rotate(angleToRadian(this.angle));
+    // move canvas origin back to top lef
+    ctx.translate(-this.x - this.width / 2, -this.y - this.height / 2);
   }
 
   drawStroke(ctx: CanvasRenderingContext2D) {
     ctx.strokeStyle = this.borderColor;
     ctx.lineWidth = this.borderWidth;
-  }
-
-  draw(ctx: CanvasRenderingContext2D) {
-    ctx.beginPath();
-    this.transformScale(ctx);
-    this.transformAngle(ctx);
-    ctx.rect(this.x, this.y, this.width, this.height);
-    ctx.fillStyle = this.fill;
-    this.drawStroke(ctx);
-    ctx.fill();
-    ctx.stroke();
-    ctx.setTransform(IDENTITY_METRIX);
   }
 }
