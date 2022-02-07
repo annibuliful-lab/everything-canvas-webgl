@@ -1,9 +1,5 @@
-import {
-  I2dDraw,
-  I2dIntersection,
-  I2dPosition,
-  ObjectPositioDimension,
-} from "../@types/Object";
+import { I2dPosition, ObjectPositioDimension } from "../@types/Object";
+import { ICanvasObject } from "../canvas/canvasManager";
 import { ShapeBaseObject } from "./object";
 
 type SetOptionParam = Partial<
@@ -25,12 +21,16 @@ type SetOptionParam = Partial<
   >
 >;
 
-export class Rectangle
-  extends ShapeBaseObject
-  implements I2dDraw, I2dIntersection
-{
+export class Rectangle extends ShapeBaseObject implements ICanvasObject {
   constructor(option: ObjectPositioDimension & { id: string }) {
     super(option);
+  }
+
+  get centerPoint() {
+    return {
+      top: (this.y + this.height) / 2,
+      left: (this.x + this.width) / 2,
+    };
   }
 
   set(option: SetOptionParam): void {
@@ -60,5 +60,18 @@ export class Rectangle
     }
 
     return false;
+  }
+
+  draw(ctx: CanvasRenderingContext2D) {
+    ctx.beginPath();
+    this.transformScale(ctx);
+    this.transformAngle(ctx);
+
+    ctx.rect(this.x, this.y, this.width, this.height);
+    ctx.fillStyle = this.fill;
+    this.drawStroke(ctx);
+    ctx.fill();
+    ctx.stroke();
+    this.resetTransform(ctx);
   }
 }

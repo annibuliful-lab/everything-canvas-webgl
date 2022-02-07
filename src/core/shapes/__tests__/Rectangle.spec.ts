@@ -45,6 +45,13 @@ describe("Rectangle", () => {
     });
   });
 
+  describe("centerPoint function", () => {
+    it("it should return center position", () => {
+      expect(baseRect.centerPoint.top).toEqual(161.5);
+      expect(baseRect.centerPoint.left).toEqual(65);
+    });
+  });
+
   describe("set", () => {
     it("it should set new fill value", () => {
       const rect = createRect();
