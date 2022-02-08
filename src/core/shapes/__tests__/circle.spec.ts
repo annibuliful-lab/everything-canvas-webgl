@@ -24,34 +24,40 @@ describe("Circle", () => {
   });
 
   describe("set", () => {
+    it("it should set new radius value", () => {
+      const circle = createCircle();
+      const newRadius = 90;
+      circle.set({ radius: newRadius });
+      expect(circle.toObject().radius).toEqual(newRadius);
+    });
     it("it should set new fill value", () => {
-      const rect = createCircle();
+      const circle = createCircle();
       const newFill = "#0a4872";
-      rect.set({ fill: newFill });
-      expect(rect.toObject().fill).toEqual(newFill);
+      circle.set({ fill: newFill });
+      expect(circle.toObject().fill).toEqual(newFill);
     });
 
     it("it should set scale attribute", () => {
-      const rect = createCircle();
+      const circle = createCircle();
       const scale = {
         scaleX: 1,
         scaleY: 1.5,
       };
 
-      rect.set(scale);
-      expect(rect.toObject().scale).toEqual(scale);
+      circle.set(scale);
+      expect(circle.toObject().scale).toEqual(scale);
     });
 
     it("it should set border attribute", () => {
-      const rect = createCircle();
+      const circle = createCircle();
 
       const option = {
         borderColor: "red",
         borderWidth: 3,
       };
-      rect.set(option);
+      circle.set(option);
 
-      expect(rect.border).toEqual(option);
+      expect(circle.border).toEqual(option);
     });
   });
 
