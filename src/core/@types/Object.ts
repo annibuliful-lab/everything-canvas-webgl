@@ -68,6 +68,7 @@ export interface I2dObject<T> {
         | "bottomLeft"
         | "bottomRight"
         | "setFill"
+        | "border"
       >
     >
   ): void;

@@ -1,5 +1,23 @@
 import { ShapeBaseObject, ShapeBaseObjectConstructorParam } from "./object";
 
+type SetOptionParam = Partial<
+  Omit<
+    Circle,
+    | "draw"
+    | "contains"
+    | "toObjects"
+    | "left"
+    | "right"
+    | "top"
+    | "bottom"
+    | "topLeft"
+    | "topRight"
+    | "bottomLeft"
+    | "bottomRight"
+    | "setFill"
+    | "border"
+  >
+>;
 export class Circle extends ShapeBaseObject {
   radius: number = 1;
   constructor({
@@ -30,25 +48,7 @@ export class Circle extends ShapeBaseObject {
     };
   }
 
-  set(
-    option: Partial<
-      Omit<
-        Circle,
-        | "draw"
-        | "contains"
-        | "toObjects"
-        | "left"
-        | "right"
-        | "top"
-        | "bottom"
-        | "topLeft"
-        | "topRight"
-        | "bottomLeft"
-        | "bottomRight"
-        | "setFill"
-      >
-    >
-  ) {
+  set(option: SetOptionParam) {
     super.set(option);
   }
 
