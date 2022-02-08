@@ -56,7 +56,12 @@ window.onload = () => {
 
     setTimeout(() => {
       canvasManager.remove(rect1.id);
-      circle.set({ radius: 100, angle: 30 });
+      circle.set({
+        radius: 50,
+        fill: "green",
+        borderColor: "yellow",
+        borderWidth: 10,
+      });
       canvasManager.render();
     }, 3000);
 
