@@ -2,6 +2,9 @@ import { ObjectPositioDimension } from "../@types/Object";
 import { IDENTITY_METRIX } from "../math/constants";
 import { angleToRadian } from "../math/trigometry";
 
+export type ShapeBaseObjectConstructorParam = ObjectPositioDimension & {
+  id: string;
+};
 export class ShapeBaseObject {
   id: string;
   x: number;
@@ -18,9 +21,9 @@ export class ShapeBaseObject {
   constructor({
     x,
     y,
-    width,
-    height,
     id,
+    width = 0,
+    height = 0,
   }: ObjectPositioDimension & { id: string }) {
     this.x = x;
     this.y = y;

@@ -17,7 +17,10 @@ export interface I3dDimension extends I2dDimension {
   depth: number;
 }
 
-export type ObjectPositioDimension = I2dPosition & I2dDimension;
+export type ObjectPositioDimension = I2dPosition & {
+  width?: number;
+  height?: number;
+};
 
 export interface I2dDraw {
   draw(ctx: CanvasRenderingContext2D): void;
