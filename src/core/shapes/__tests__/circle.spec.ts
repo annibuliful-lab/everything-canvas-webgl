@@ -16,6 +16,7 @@ function createCircle(
 
 describe("Circle", () => {
   const baseCircle = createCircle();
+  const baseCircleObject = baseCircle.toObject();
 
   it("it should be defined class ", () => {
     const circle = createCircle();
@@ -70,12 +71,28 @@ describe("Circle", () => {
     });
 
     it("it should contain radius value", () => {
-      expect(baseCircle.radius).toEqual(BASE_PARAM.radius);
+      expect(baseCircle.toObject().radius).toEqual(BASE_PARAM.radius);
     });
 
-    it.todo("it should contain top left object position");
-    it.todo("it should contain top right object position");
-    it.todo("it should contain bottom left object position");
-    it.todo("it should contain bottom right object position");
+    it("it should contain top left object position", () => {
+      expect(baseCircleObject.boundingBox.topLeft).toEqual({ x: -90, y: 112 });
+    });
+
+    it("it should contain top right object position", () => {
+      expect(baseCircleObject.boundingBox.topRight).toEqual({ x: 110, y: 112 });
+    });
+
+    it("it should contain bottom left object position", () => {
+      expect(baseCircleObject.boundingBox.bottomLeft).toEqual({
+        x: -90,
+        y: 12,
+      });
+    });
+    it("it should contain bottom right object position", () => {
+      expect(baseCircleObject.boundingBox.bottomRight).toEqual({
+        x: 110,
+        y: 12,
+      });
+    });
   });
 });

@@ -16,6 +16,7 @@ type SetOptionParam = Partial<
     | "bottomRight"
     | "setFill"
     | "border"
+    | "boundingBox"
   >
 >;
 export class Circle extends ShapeBaseObject {
@@ -39,6 +40,58 @@ export class Circle extends ShapeBaseObject {
     ctx.fill();
     ctx.stroke();
     this.resetTransform(ctx);
+  }
+  get left() {
+    return this.x - this.radius;
+  }
+
+  get right() {
+    return this.x + this.radius;
+  }
+
+  get top() {
+    return this.y + this.radius;
+  }
+
+  get topLeft() {
+    return {
+      x: this.left,
+      y: this.top,
+    };
+  }
+
+  get topRight() {
+    return {
+      x: this.right,
+      y: this.top,
+    };
+  }
+
+  get bottom() {
+    return this.y - this.height;
+  }
+
+  get bottomLeft() {
+    return {
+      x: this.left,
+      y: this.bottom,
+    };
+  }
+
+  get bottomRight() {
+    return {
+      x: this.right,
+      y: this.bottom,
+    };
+  }
+
+  get boundingBox() {
+    return {
+      topLeft: this.topLeft,
+      topRight: this.topRight,
+      bottomLeft: this.bottomLeft,
+      bottomRight: this.bottomRight,
+    };
   }
 
   get centerPoint() {

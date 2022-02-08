@@ -44,10 +44,6 @@ export class ShapeBaseObject {
     return this.y;
   }
 
-  get bottom() {
-    return this.y + this.height;
-  }
-
   get topLeft() {
     return {
       x: this.x,
@@ -60,6 +56,10 @@ export class ShapeBaseObject {
       x: this.right,
       y: this.y,
     };
+  }
+
+  get bottom() {
+    return this.y + this.height;
   }
 
   get bottomLeft() {
