@@ -61,6 +61,8 @@ window.onload = () => {
         fill: "green",
         borderColor: "yellow",
         borderWidth: 10,
+        x: 100,
+        y: 100,
       });
       canvasManager.render();
     }, 3000);
