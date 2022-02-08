@@ -28,8 +28,8 @@ export class Rectangle extends ShapeBaseObject implements ICanvasObject {
 
   get centerPoint() {
     return {
-      top: (this.y + this.height) / 2,
-      left: (this.x + this.width) / 2,
+      top: (this.top + this.height) / 2,
+      left: (this.left + this.width) / 2,
     };
   }
 

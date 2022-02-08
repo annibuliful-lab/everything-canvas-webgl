@@ -1,5 +1,6 @@
 import { Rectangle } from "./core/shapes/rectangle";
 import { CanvasManager, Dimension } from "./core/canvas/canvasManager";
+import { Circle } from "./core/shapes/circle";
 window.onload = () => {
   const canvas = document.getElementById(
     "canvas-playground"
@@ -41,12 +42,28 @@ window.onload = () => {
       height: 100,
       id: "Rect1",
     });
+    const circle = new Circle({
+      x: 200,
+      y: 200,
+      id: "Circle1",
+      radius: 5,
+    });
+
+    canvasManager.add(circle);
     canvasManager.add(rect1);
     canvasManager.add(rect2);
     canvasManager.render();
 
     setTimeout(() => {
       canvasManager.remove(rect1.id);
+      circle.set({
+        radius: 50,
+        fill: "green",
+        borderColor: "yellow",
+        borderWidth: 10,
+        x: 100,
+        y: 100,
+      });
       canvasManager.render();
     }, 3000);
 
