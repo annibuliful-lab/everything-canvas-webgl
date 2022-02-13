@@ -14,6 +14,6 @@ Books in my hand
 
 ## Contributors
 
-[@Lagmanzaza](https://www.github.com/lagmanzaza)
+[@Annibuliful](https://www.github.com/annibuliful)
 
 [@Benz](https://github.com/benzdechapon)
