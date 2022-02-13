@@ -61,6 +61,22 @@ describe("Circle", () => {
     });
   });
 
+  describe("contains", () => {
+    it("it should return true when circle contains point(10,10)", () => {
+      expect(baseCircle.contains({ x: 10, y: 10 })).toBeTruthy();
+    });
+    it("it should return true when circle contains point(10,12)", () => {
+      expect(baseCircle.contains({ x: 10, y: 12 })).toBeTruthy();
+    });
+    it("it should return false when circle does not contain point(10,13)", () => {
+      expect(baseCircle.contains({ x: 10, y: 13 })).toBeTruthy();
+    });
+
+    it("it should return false when circle does not contain point(20,20)", () => {
+      expect(baseCircle.contains({ x: 20, y: 20 })).toBeTruthy();
+    });
+  });
+
   describe("toObject ", () => {
     it("it should contain border attribute", () => {
       const rect = createCircle();
