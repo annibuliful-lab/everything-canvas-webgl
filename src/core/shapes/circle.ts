@@ -1,3 +1,4 @@
+
 import { I2dPosition } from "../@types/Object";
 import { ShapeBaseObject, ShapeBaseObjectConstructorParam } from "./object";
 
