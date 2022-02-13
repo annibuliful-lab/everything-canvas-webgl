@@ -1,3 +1,4 @@
+import { I2dPosition } from "../@types/Object";
 import { ShapeBaseObject, ShapeBaseObjectConstructorParam } from "./object";
 
 type SetOptionParam = Partial<
@@ -103,6 +104,19 @@ export class Circle extends ShapeBaseObject {
 
   set(option: SetOptionParam) {
     super.set(option);
+  }
+
+  contains(position: I2dPosition) {
+    // implement pythagorean
+    const distanceX = position.x - this.x;
+    const distanceY = position.y - this.y;
+    const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+
+    if (distance <= this.radius) {
+      return true;
+    }
+
+    return false;
   }
 
   toObject() {
