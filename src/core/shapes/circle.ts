@@ -1,5 +1,5 @@
-
 import { I2dPosition } from "../@types/Object";
+import { getColor } from "../utils/get-color";
 import { ShapeBaseObject, ShapeBaseObjectConstructorParam } from "./object";
 
 type SetOptionParam = Partial<
@@ -7,7 +7,7 @@ type SetOptionParam = Partial<
     Circle,
     | "draw"
     | "contains"
-    | "toObjects"
+    | "toObject"
     | "left"
     | "right"
     | "top"
@@ -37,12 +37,13 @@ export class Circle extends ShapeBaseObject {
     this.transformAngle(ctx);
 
     ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-    ctx.fillStyle = this.fill;
+    ctx.fillStyle = getColor(this.fill, this.opacity);
     this.drawStroke(ctx);
     ctx.fill();
     ctx.stroke();
     this.resetTransform(ctx);
   }
+
   get left() {
     return this.x - this.radius;
   }
@@ -108,7 +109,6 @@ export class Circle extends ShapeBaseObject {
   }
 
   contains(position: I2dPosition) {
-    // implement pythagorean
     const distanceX = position.x - this.x;
     const distanceY = position.y - this.y;
     const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
@@ -124,6 +124,7 @@ export class Circle extends ShapeBaseObject {
     return {
       x: this.x,
       y: this.y,
+      opacity: this.opacity,
       radius: this.radius,
       scaleX: this.scaleX,
       scaleY: this.scaleY,

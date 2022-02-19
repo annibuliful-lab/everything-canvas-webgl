@@ -5,6 +5,7 @@
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
+    "dev": "parcel serve",
     "pre-commit": "lint-staged",
     "format": "prettier --write .",
     "test": "jest",

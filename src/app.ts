@@ -76,6 +76,12 @@ window.onload = () => {
       rect2.set({ angle: 45 });
       canvasManager.render();
     }, 6000);
+
+    setTimeout(() => {
+      rect2.set({ opacity: 0.1 });
+      circle.set({ opacity: 0.3 });
+      canvasManager.render();
+    }, 8000);
   }
 
   draw();
@@ -84,6 +90,7 @@ window.onload = () => {
 
   window.onresize = () => {
     canvasManager.setDimension(canvasDimension);
+    canvasManager.clear();
     draw();
   };
 };

@@ -1,5 +1,6 @@
 import { I2dPosition, ObjectPositioDimension } from "../@types/Object";
 import { ICanvasObject } from "../canvas/canvasManager";
+import { getColor } from "../utils/get-color";
 import { ShapeBaseObject } from "./object";
 
 type SetOptionParam = Partial<
@@ -68,7 +69,7 @@ export class Rectangle extends ShapeBaseObject implements ICanvasObject {
     this.transformAngle(ctx);
 
     ctx.rect(this.x, this.y, this.width, this.height);
-    ctx.fillStyle = this.fill;
+    ctx.fillStyle = getColor(this.fill, this.opacity);
     this.drawStroke(ctx);
     ctx.fill();
     ctx.stroke();
