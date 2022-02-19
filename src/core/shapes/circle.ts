@@ -129,7 +129,7 @@ export class Circle extends ShapeBaseObject {
       scaleX: this.scaleX,
       scaleY: this.scaleY,
       fill: this.fill,
-      widht: this.width,
+      width: this.width,
       height: this.height,
       boundingBox: this.boundingBox,
       border: this.border,

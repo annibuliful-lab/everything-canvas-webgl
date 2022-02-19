@@ -1,5 +1,5 @@
-import { ObjectPositioDimension } from "../../@types/Object";
-import { ShapeBaseObject } from "../object";
+import { ObjectPositioDimension } from "../../core/@types/Object";
+import { ShapeBaseObject } from "../../core/shapes/object";
 
 const BASE_PARAM = {
   x: 10,

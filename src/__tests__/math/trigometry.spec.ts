@@ -1,4 +1,4 @@
-import { angleToRadian, radianToAngle } from "../trigometry";
+import { angleToRadian, radianToAngle } from "../../core/math/trigometry";
 
 describe("trigometry", () => {
   it("it should convert angle to radian", () => {

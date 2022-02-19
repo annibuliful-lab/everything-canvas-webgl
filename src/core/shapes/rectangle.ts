@@ -1,5 +1,5 @@
 import { I2dPosition, ObjectPositioDimension } from "../@types/Object";
-import { ICanvasObject } from "../canvas/canvasManager";
+import { ICanvasObject } from "../canvas/canvas-manager";
 import { getColor } from "../utils/get-color";
 import { ShapeBaseObject } from "./object";
 
@@ -95,7 +95,7 @@ export class Rectangle extends ShapeBaseObject implements ICanvasObject {
       scaleX: this.scaleX,
       scaleY: this.scaleY,
       fill: this.fill,
-      widht: this.width,
+      width: this.width,
       height: this.height,
       boundingBox: this.boundingBox,
       centerPoint: this.centerPoint,

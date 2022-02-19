@@ -1,5 +1,5 @@
 import { Rectangle } from "./core/shapes/rectangle";
-import { CanvasManager, Dimension } from "./core/canvas/canvasManager";
+import { CanvasManager, Dimension } from "./core/canvas/canvas-manager";
 import { Circle } from "./core/shapes/circle";
 window.onload = () => {
   const canvas = document.getElementById(
