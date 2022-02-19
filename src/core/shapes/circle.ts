@@ -99,8 +99,8 @@ export class Circle extends ShapeBaseObject {
 
   get centerPoint() {
     return {
-      top: this.x,
-      left: this.y,
+      top: this.y,
+      left: this.x,
     };
   }
 
