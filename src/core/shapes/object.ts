@@ -17,6 +17,7 @@ export class ShapeBaseObject {
   scaleX = 1;
   scaleY = 1;
   angle = 0;
+  opacity = 1;
 
   constructor({
     x,
@@ -103,6 +104,7 @@ export class ShapeBaseObject {
     return {
       x: this.x,
       y: this.y,
+      opacity: this.opacity,
       scaleX: this.scaleX,
       scaleY: this.scaleY,
       fill: this.fill,
@@ -137,6 +139,7 @@ export class ShapeBaseObject {
       (<any>this)[key] = value;
     }
   }
+
   resetTransform(ctx: CanvasRenderingContext2D) {
     ctx.setTransform(IDENTITY_METRIX);
   }

@@ -1,4 +1,3 @@
-
 import { I2dPosition } from "../@types/Object";
 import { ShapeBaseObject, ShapeBaseObjectConstructorParam } from "./object";
 
@@ -7,7 +6,7 @@ type SetOptionParam = Partial<
     Circle,
     | "draw"
     | "contains"
-    | "toObjects"
+    | "toObject"
     | "left"
     | "right"
     | "top"
@@ -108,7 +107,6 @@ export class Circle extends ShapeBaseObject {
   }
 
   contains(position: I2dPosition) {
-    // implement pythagorean
     const distanceX = position.x - this.x;
     const distanceY = position.y - this.y;
     const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
@@ -124,6 +122,7 @@ export class Circle extends ShapeBaseObject {
     return {
       x: this.x,
       y: this.y,
+      opacity: this.opacity,
       radius: this.radius,
       scaleX: this.scaleX,
       scaleY: this.scaleY,
