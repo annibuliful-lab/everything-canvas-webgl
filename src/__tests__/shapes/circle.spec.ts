@@ -1,5 +1,5 @@
-import { ObjectPositioDimension } from "../../@types/Object";
-import { Circle } from "../circle";
+import { ObjectPositioDimension } from "../../core/@types/Object";
+import { Circle } from "../../core/shapes/circle";
 
 const BASE_PARAM = {
   x: 10,

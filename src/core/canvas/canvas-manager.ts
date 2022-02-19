@@ -11,6 +11,8 @@ export interface ICanvasObject extends ShapeBaseObject {
     top: number;
     left: number;
   };
+
+  toObject(): any;
 }
 
 export class CanvasManager {

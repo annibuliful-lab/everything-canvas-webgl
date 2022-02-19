@@ -5,14 +5,15 @@ specifiers:
   '@commitlint/config-conventional': 16.0.0
   '@types/jest': 27.4.0
   '@typescript-eslint/eslint-plugin': 5.10.2
-  '@typescript-eslint/parser': ^5.10.2
+  '@typescript-eslint/parser': 5.10.2
   eslint: 7.32.0
   eslint-config-airbnb-base: 15.0.0
   eslint-plugin-import: 2.25.4
   eslint-plugin-simple-import-sort: 7.0.0
-  eslint-plugin-unused-imports: ^2.0.0
+  eslint-plugin-unused-imports: 2.0.0
   husky: 7.0.4
   jest: 27.4.7
+  jest-canvas-mock: ^2.3.1
   lint-staged: 12.3.2
   parcel: 2.2.1
   prettier: 2.5.1
@@ -31,6 +32,7 @@ dependencies:
   eslint-plugin-unused-imports: 2.0.0_ca22b811c9bdff3032fd3708ecc6638d
   husky: 7.0.4
   jest: 27.4.7
+  jest-canvas-mock: 2.3.1
   lint-staged: 12.3.2
   parcel: 2.2.1
   prettier: 2.5.1
@@ -2782,6 +2784,10 @@ packages:
     hasBin: true
     dev: false
 
+  /cssfontparser/1.2.1:
+    resolution: {integrity: sha1-9AIvyPlwDGgCnVQghK+69CWj8+M=}
+    dev: false
+
   /cssnano-preset-default/5.1.11_postcss@8.4.6:
     resolution: {integrity: sha512-ETet5hqHxmzQq2ynXMOQofKuLm7VOjMiOB7E2zdtm/hSeCKlD9fabzIUV4GoPcRyJRHi+4kGf0vsfGYbQ4nmPw==}
     engines: {node: ^10 || ^12 || >=14.0}
@@ -4360,6 +4366,13 @@ packages:
       minimatch: 3.0.4
     dev: false
 
+  /jest-canvas-mock/2.3.1:
+    resolution: {integrity: sha512-5FnSZPrX3Q2ZfsbYNE3wqKR3+XorN8qFzDzB5o0golWgt6EOX1+emBnpOc9IAQ+NXFj8Nzm3h7ZdE/9H0ylBcg==}
+    dependencies:
+      cssfontparser: 1.2.1
+      moo-color: 1.0.2
+    dev: false
+
   /jest-changed-files/27.5.0:
     resolution: {integrity: sha512-BGWKI7E6ORqbF5usF1oA4ftbkhVZVrXr8jB0/BrU6TAn3kfOVwX2Zx6pKIXYutJ+qNEjT8Da/gGak0ajya/StA==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
@@ -5258,6 +5271,12 @@ packages:
     hasBin: true
     dependencies:
       minimist: 1.2.5
+    dev: false
+
+  /moo-color/1.0.2:
+    resolution: {integrity: sha512-5iXz5n9LWQzx/C2WesGFfpE6RLamzdHwsn3KpfzShwbfIqs7stnoEpaNErf/7+3mbxwZ4s8Foq7I0tPxw7BWHg==}
+    dependencies:
+      color-name: 1.1.4
     dev: false
 
   /ms/2.0.0:

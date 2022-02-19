@@ -1,5 +1,5 @@
-import { ObjectPositioDimension } from "../../@types/Object";
-import { Rectangle } from "../rectangle";
+import { ObjectPositioDimension } from "../../core/@types/Object";
+import { Rectangle } from "../../core/shapes/rectangle";
 
 const BASE_PARAM = {
   x: 10,
@@ -100,7 +100,7 @@ describe("Rectangle", () => {
     });
 
     it("it should contain dimension object", () => {
-      expect(baseRectObject.widht).toEqual(BASE_PARAM.width);
+      expect(baseRectObject.width).toEqual(BASE_PARAM.width);
       expect(baseRectObject.height).toEqual(BASE_PARAM.height);
     });
 
