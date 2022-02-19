@@ -6,7 +6,7 @@ export type ShapeBaseObjectConstructorParam = ObjectPositioDimension & {
   id: string;
 };
 
-export abstract class ShapeBaseObject {
+export class ShapeBaseObject {
   id: string;
   x: number;
   y: number;

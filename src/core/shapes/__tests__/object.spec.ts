@@ -14,35 +14,12 @@ function createShapeObject(data?: ObjectPositioDimension & { id: string }) {
 }
 
 describe("ShapeBaseObject", () => {
-  const baseShapeObject = createShapeObject();
-  const baseRectObject = baseShapeObject.toObject();
-
-  it("it should create Rectangle class", () => {
-    expect(baseShapeObject).toBeDefined();
-  });
-  describe("bounding position", () => {
-    it("it should return correct top left position", () => {
-      expect(baseShapeObject.topLeft).toEqual({ x: 10, y: 12 });
-    });
-
-    it("it should return correct top right position", () => {
-      expect(baseShapeObject.topRight).toEqual({ x: 130, y: 12 });
-    });
-
-    it("it should return correct bottom left position", () => {
-      expect(baseShapeObject.bottomLeft).toEqual({ x: 10, y: 323 });
-    });
-    it("it should return correct bottom right position", () => {
-      expect(baseShapeObject.bottomRight).toEqual({ x: 130, y: 323 });
-    });
-  });
-
   describe("set", () => {
     it("it should set new fill value", () => {
       const rect = createShapeObject();
       const newFill = "#0a4872";
       rect.set({ fill: newFill });
-      expect(rect.toObject().fill).toEqual(newFill);
+      expect(rect.fill).toEqual(newFill);
     });
 
     it("it should set scale attribute", () => {
@@ -53,7 +30,7 @@ describe("ShapeBaseObject", () => {
       };
 
       rect.set(scale);
-      expect(rect.toObject().scale).toEqual(scale);
+      expect(rect.scale).toEqual(scale);
     });
 
     it("it should set border attribute", () => {
@@ -77,16 +54,6 @@ describe("ShapeBaseObject", () => {
         borderColor: "rgba(0,0,0,0)",
         borderWidth: 0,
       });
-    });
-
-    it("it should contain position object", () => {
-      expect(baseRectObject.x).toEqual(BASE_PARAM.x);
-      expect(baseRectObject.y).toEqual(BASE_PARAM.y);
-    });
-
-    it("it should contain dimension object", () => {
-      expect(baseRectObject.widht).toEqual(BASE_PARAM.width);
-      expect(baseRectObject.height).toEqual(BASE_PARAM.height);
     });
   });
 });
