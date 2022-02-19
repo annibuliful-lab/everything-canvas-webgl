@@ -6,7 +6,7 @@ export type ShapeBaseObjectConstructorParam = ObjectPositioDimension & {
   id: string;
 };
 
-export class ShapeBaseObject {
+export abstract class ShapeBaseObject {
   id: string;
   x: number;
   y: number;
@@ -34,59 +34,6 @@ export class ShapeBaseObject {
     this.id = id;
   }
 
-  get left() {
-    return this.x;
-  }
-
-  get right() {
-    return this.x + this.width;
-  }
-
-  get top() {
-    return this.y;
-  }
-
-  get topLeft() {
-    return {
-      x: this.x,
-      y: this.y,
-    };
-  }
-
-  get topRight() {
-    return {
-      x: this.right,
-      y: this.y,
-    };
-  }
-
-  get bottom() {
-    return this.y + this.height;
-  }
-
-  get bottomLeft() {
-    return {
-      x: this.x,
-      y: this.bottom,
-    };
-  }
-
-  get bottomRight() {
-    return {
-      x: this.right,
-      y: this.bottom,
-    };
-  }
-
-  get boundingBox() {
-    return {
-      topLeft: this.topLeft,
-      topRight: this.topRight,
-      bottomLeft: this.bottomLeft,
-      bottomRight: this.bottomRight,
-    };
-  }
-
   get border() {
     return {
       borderColor: this.borderColor,
@@ -98,22 +45,6 @@ export class ShapeBaseObject {
     return {
       scaleX: this.scaleX,
       scaleY: this.scaleY,
-    };
-  }
-
-  toObject() {
-    return {
-      x: this.x,
-      y: this.y,
-      opacity: this.opacity,
-      scaleX: this.scaleX,
-      scaleY: this.scaleY,
-      fill: this.fill,
-      widht: this.width,
-      height: this.height,
-      boundingBox: this.boundingBox,
-      border: this.border,
-      scale: this.scale,
     };
   }
 

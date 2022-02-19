@@ -77,11 +77,18 @@ describe("Circle", () => {
     });
   });
 
+  describe("centerPoint function", () => {
+    it("it should return center position", () => {
+      expect(baseCircle.centerPoint.top).toEqual(BASE_PARAM.y);
+      expect(baseCircle.centerPoint.left).toEqual(BASE_PARAM.x);
+    });
+  });
+
   describe("toObject ", () => {
     it("it should contain border attribute", () => {
-      const rect = createCircle();
+      const cicle = createCircle();
 
-      expect(rect.border).toEqual({
+      expect(cicle.border).toEqual({
         borderColor: "rgba(0,0,0,0)",
         borderWidth: 0,
       });
