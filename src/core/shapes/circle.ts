@@ -35,7 +35,7 @@ export class Circle extends ShapeBaseObject {
     ctx.beginPath();
     this.transformScale(ctx);
     this.transformAngle(ctx);
-    console.log("circle", this.fill, getColor(this.fill, this.opacity));
+
     ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
     ctx.fillStyle = getColor(this.fill, this.opacity);
     this.drawStroke(ctx);
