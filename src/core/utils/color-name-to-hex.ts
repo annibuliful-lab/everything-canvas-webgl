@@ -1,3 +1,4 @@
+// https://stackoverflow.com/questions/1573053/javascript-function-to-convert-color-names-to-hex-codes
 const colours = {
   aliceblue: "#f0f8ff",
   antiquewhite: "#faebd7",
