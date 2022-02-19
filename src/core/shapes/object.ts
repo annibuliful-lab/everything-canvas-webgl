@@ -5,6 +5,7 @@ import { angleToRadian } from "../math/trigometry";
 export type ShapeBaseObjectConstructorParam = ObjectPositioDimension & {
   id: string;
 };
+
 export class ShapeBaseObject {
   id: string;
   x: number;

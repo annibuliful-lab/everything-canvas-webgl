@@ -37,9 +37,13 @@ export class CanvasManager {
     return this._objects;
   }
 
+  clear() {
+    this.context.clearRect(0, 0, this.width, this.height);
+  }
+
   render() {
     // Need to clear in every call render
-    this.context.clearRect(0, 0, this.width, this.height);
+    this.clear();
 
     for (const object of this._objects) {
       object.draw(this.context);

@@ -1,4 +1,5 @@
 import { I2dPosition } from "../@types/Object";
+import { getColor } from "../utils/get-color";
 import { ShapeBaseObject, ShapeBaseObjectConstructorParam } from "./object";
 
 type SetOptionParam = Partial<
@@ -34,14 +35,15 @@ export class Circle extends ShapeBaseObject {
     ctx.beginPath();
     this.transformScale(ctx);
     this.transformAngle(ctx);
-
+    console.log("circle", this.fill, getColor(this.fill, this.opacity));
     ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-    ctx.fillStyle = this.fill;
+    ctx.fillStyle = getColor(this.fill, this.opacity);
     this.drawStroke(ctx);
     ctx.fill();
     ctx.stroke();
     this.resetTransform(ctx);
   }
+
   get left() {
     return this.x - this.radius;
   }
