@@ -168,3 +168,45 @@ Array [
   },
 ]
 `;
+
+exports[`CanvasManager class remove function it should remove rectangle 1`] = `
+Array [
+  Object {
+    "border": Object {
+      "borderColor": "rgba(0,0,0,0)",
+      "borderWidth": 0,
+    },
+    "boundingBox": Object {
+      "bottomLeft": Object {
+        "x": -90,
+        "y": 12,
+      },
+      "bottomRight": Object {
+        "x": 110,
+        "y": 12,
+      },
+      "topLeft": Object {
+        "x": -90,
+        "y": 112,
+      },
+      "topRight": Object {
+        "x": 110,
+        "y": 112,
+      },
+    },
+    "fill": "#000000",
+    "height": 0,
+    "opacity": 1,
+    "radius": 100,
+    "scale": Object {
+      "scaleX": 1,
+      "scaleY": 1,
+    },
+    "scaleX": 1,
+    "scaleY": 1,
+    "width": 0,
+    "x": 10,
+    "y": 12,
+  },
+]
+`;

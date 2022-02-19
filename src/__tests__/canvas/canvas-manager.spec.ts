@@ -14,6 +14,21 @@ describe("CanvasManager class", () => {
     expect(new CanvasManager(canvas)).toBeTruthy();
   });
 
+  describe("remove function", () => {
+    it("it should remove rectangle", () => {
+      const rect = createRect();
+      const circle = createCircle();
+
+      canvasManager.add(rect);
+      canvasManager.add(circle);
+      expect(canvasManager.getObjects().length).toEqual(2);
+      canvasManager.remove(rect.id);
+      expect(
+        canvasManager.getObjects().map((o) => o.toObject())
+      ).toMatchSnapshot();
+    });
+  });
+
   describe("add function", () => {
     it("it should add rectangle", () => {
       const rect = createRect();
