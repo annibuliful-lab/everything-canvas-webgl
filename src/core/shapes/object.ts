@@ -26,7 +26,7 @@ export class ShapeBaseObject {
     id,
     width = 0,
     height = 0,
-  }: ObjectPositioDimension & { id: string }) {
+  }: ShapeBaseObjectConstructorParam) {
     this.x = x;
     this.y = y;
     this.width = width;

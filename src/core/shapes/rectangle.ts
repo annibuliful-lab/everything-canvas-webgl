@@ -87,6 +87,11 @@ export class Rectangle extends ShapeBaseObject implements ICanvasObject {
     };
   }
 
+  // TODO: implement set coordinate functionality
+  setCoords(): void {
+    throw new Error("Method not implemented.");
+  }
+
   toObject() {
     return {
       x: this.x,

@@ -1,3 +1,4 @@
+import { I2dPosition } from "../@types/Object";
 import { ShapeBaseObject } from "../shapes/object";
 
 export type Dimension = {
@@ -7,7 +8,25 @@ export type Dimension = {
 
 export interface ICanvasObject extends ShapeBaseObject {
   draw(ctx: CanvasRenderingContext2D): void;
-  centerPoint: {
+  contains(position: I2dPosition): boolean;
+  setCoords(): void;
+  get boundingBox(): {
+    topLeft: I2dPosition;
+    topRight: I2dPosition;
+    bottomLeft: I2dPosition;
+    bottomRight: I2dPosition;
+  };
+
+  get left(): number;
+  get right(): number;
+  get top(): number;
+  get topLeft(): I2dPosition;
+  get topRight(): I2dPosition;
+  get bottom(): number;
+  get bottomLeft(): I2dPosition;
+  get bottomRight(): I2dPosition;
+
+  get centerPoint(): {
     top: number;
     left: number;
   };
