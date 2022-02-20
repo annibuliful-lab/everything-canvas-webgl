@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`trigometry it should get new bounding box by 40 degree with origin = (1,1) and point[(10,10),(30,10),(10,30),(30,30)] 1`] = `
+Object {
+  "bottomLeft": Object {
+    "x": -5.70577136594005,
+    "y": 40.61473670974872,
+  },
+  "bottomRight": Object {
+    "x": 21.614736709748723,
+    "y": 40.61473670974872,
+  },
+  "topLeft": Object {
+    "x": -5.70577136594005,
+    "y": 13.294228634059948,
+  },
+  "topRight": Object {
+    "x": 21.614736709748723,
+    "y": 13.294228634059948,
+  },
+}
+`;
+
+exports[`trigometry it should get new rotated point by 30 degree with origin = (1,1) and point (10,10) 1`] = `
+Object {
+  "x": 4.294228634059949,
+  "y": 13.294228634059948,
+}
+`;
+
+exports[`trigometry it should get new rotated point by 30 degree with origin = (10,10) and point (10,10) 1`] = `
+Object {
+  "x": 10,
+  "y": 10,
+}
+`;
