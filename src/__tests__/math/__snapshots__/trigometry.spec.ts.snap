@@ -21,6 +21,27 @@ Object {
 }
 `;
 
+exports[`trigometry it should get new bounding box from points[(10,10),(30,10),(10,30),(30,30),(0,0),(100,130),(5,8)] 1`] = `
+Object {
+  "bottomLeft": Object {
+    "x": 0,
+    "y": 130,
+  },
+  "bottomRight": Object {
+    "x": 100,
+    "y": 130,
+  },
+  "topLeft": Object {
+    "x": 0,
+    "y": 0,
+  },
+  "topRight": Object {
+    "x": 100,
+    "y": 0,
+  },
+}
+`;
+
 exports[`trigometry it should get new rotated point by 30 degree with origin = (1,1) and point (10,10) 1`] = `
 Object {
   "x": 4.294228634059949,

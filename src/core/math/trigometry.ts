@@ -57,8 +57,12 @@ export function getBoundingBoxByRotate({
   const rotatedPoints = points.map((point) =>
     calculateRotatePoint({ origin, angle, point })
   );
-  const rotatedPointX = rotatedPoints.map((point) => point.x);
-  const rotatedPointY = rotatedPoints.map((point) => point.y);
+  return getBoundingBoxByPoints(rotatedPoints);
+}
+
+export function getBoundingBoxByPoints(points: I2dPosition[]) {
+  const rotatedPointX = points.map((point) => point.x);
+  const rotatedPointY = points.map((point) => point.y);
   const minX = Math.min(...rotatedPointX);
   const minY = Math.min(...rotatedPointY);
   const maxX = Math.max(...rotatedPointX);
