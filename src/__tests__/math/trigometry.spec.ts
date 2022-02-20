@@ -4,6 +4,7 @@ import {
   radianToAngle,
   calculateRotatePoint,
   getBoundingBoxByRotate,
+  angleBetweenTwoPoints,
 } from "../../core/math/trigometry";
 
 describe("trigometry", () => {
@@ -46,5 +47,11 @@ describe("trigometry", () => {
     expect(
       getBoundingBoxByRotate({ origin: { x: 1, y: 1 }, points, angle: 30 })
     ).toMatchSnapshot();
+  });
+
+  it("it should return ~21 degree between (0,0) and (-5,-2)", () => {
+    expect(angleBetweenTwoPoints({ x: 0, y: 0 }, { x: -5, y: -2 })).toEqual(
+      21.80140948635181
+    );
   });
 });
