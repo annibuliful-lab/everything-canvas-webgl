@@ -5,6 +5,7 @@ import {
   calculateRotatePoint,
   getBoundingBoxByRotate,
   angleBetweenTwoPoints,
+  getBoundingBoxByPoints,
 } from "../../core/math/trigometry";
 
 describe("trigometry", () => {
@@ -47,6 +48,20 @@ describe("trigometry", () => {
     expect(
       getBoundingBoxByRotate({ origin: { x: 1, y: 1 }, points, angle: 30 })
     ).toMatchSnapshot();
+  });
+
+  it("it should get new bounding box from points[(10,10),(30,10),(10,30),(30,30),(0,0),(100,130),(5,8)]", () => {
+    const points: I2dPosition[] = [
+      { x: 10, y: 10 },
+      { x: 30, y: 10 },
+      { x: 10, y: 30 },
+      { x: 30, y: 30 },
+      { x: 0, y: 0 },
+      { x: 100, y: 130 },
+      { x: 5, y: 8 },
+    ];
+
+    expect(getBoundingBoxByPoints(points)).toMatchSnapshot();
   });
 
   it("it should return ~21 degree between (0,0) and (-5,-2)", () => {
