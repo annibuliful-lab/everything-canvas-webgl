@@ -1,4 +1,5 @@
 import { I2dPosition } from "../@types/Object";
+import { ICanvasObject } from "../canvas/canvas-manager";
 import { getColor } from "../utils/get-color";
 import { ShapeBaseObject, ShapeBaseObjectConstructorParam } from "./object";
 
@@ -21,7 +22,7 @@ type SetOptionParam = Partial<
     | "boundingBox"
   >
 >;
-export class Circle extends ShapeBaseObject {
+export class Circle extends ShapeBaseObject implements ICanvasObject {
   radius: number = 1;
   constructor({
     radius,
@@ -29,6 +30,11 @@ export class Circle extends ShapeBaseObject {
   }: ShapeBaseObjectConstructorParam & { radius: number }) {
     super(option);
     this.radius = radius;
+  }
+
+  // TODO: implement set coordinate functionality
+  setCoords(): void {
+    throw new Error("Method not implemented.");
   }
 
   draw(ctx: CanvasRenderingContext2D) {
