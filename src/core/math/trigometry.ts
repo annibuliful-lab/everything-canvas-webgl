@@ -8,6 +8,18 @@ export function radianToAngle(radian: number) {
   return (radian * 180) / Math.PI;
 }
 
+export function angleBetweenTwoPoints(
+  pointA: I2dPosition,
+  pointB: I2dPosition
+) {
+  const diffX = pointA.x - pointB.x;
+  const diffY = pointA.y - pointB.y;
+  const radians = Math.atan2(diffY, diffX);
+  const result = radianToAngle(radians);
+
+  return result < 0 ? 360 + result : result;
+}
+
 type CalculateRotatePointParam = {
   origin: I2dPosition;
   point: I2dPosition;
